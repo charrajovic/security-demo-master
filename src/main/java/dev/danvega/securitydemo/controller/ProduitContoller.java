@@ -3,6 +3,8 @@ package dev.danvega.securitydemo.controller;
 import java.util.List;
 
 
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -15,40 +17,33 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import dev.danvega.securitydemo.entity.Produit;
-import dev.danvega.securitydemo.service.IProduitService;
+import dev.danvega.securitydemo.service.ICrudService;
 
 @RestController
 @RequestMapping("/api/produit")
 @CrossOrigin
-public class ProduitController {
+public class ProduitContoller {
 
-	
-	
 	@Autowired
-	private IProduitService produitService;
+	private ICrudService<Produit, Long> produitService;
 	
 	@GetMapping
-	public List<Produit> getProduit()
-	{
-		return produitService.getProduits();
-		
+	public List<Produit> getAll(){
+		return produitService.getAll();
 	}
 	
 	@PostMapping
-	public void addProduit(@RequestBody Produit produit)
-	{
-		produitService.addProduit(produit);
+	public void add(@RequestBody Produit produit) {
+		produitService.add(produit);
 	}
 	
 	@PutMapping
-	public void updateProduit(@RequestBody Produit produit)
-	{
-		produitService.updateProduit(produit);
+	public void update(@RequestBody Produit produit) {
+		produitService.update(produit);
 	}
 	
 	@DeleteMapping("/{id}")
-	public void deleteProduit(@PathVariable Long id)
-	{
-		produitService.deleteProduit(id);
+	public void delete(@PathVariable Long id) {
+		produitService.delete(id);
 	}
 }
