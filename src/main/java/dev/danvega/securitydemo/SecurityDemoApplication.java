@@ -25,7 +25,7 @@ public class SecurityDemoApplication {
     public static void main(String[] args) {
     	ConfigurableApplicationContext ctx = SpringApplication.run(SecurityDemoApplication.class, args);
 		
-		ProduitRepository produitRepository = ctx.getBean(ProduitRepository.class);
+		/*ProduitRepository produitRepository = ctx.getBean(ProduitRepository.class);
 		
 		produitRepository.save(new Produit("Livre", 50, 20));
 		produitRepository.save(new Produit("Cahier", 200, 5.25f));
@@ -49,7 +49,7 @@ public class SecurityDemoApplication {
 		User admin = new User("admin", "password2", true);
 		admin.setRoles(Arrays.asList(roleUser, roleAdmin));
 		
-		userRepository.save(admin);
+		userRepository.save(admin);*/
     }
 
 }
